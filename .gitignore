@@ -1,0 +1,42 @@
+# ─── Compiled Output ──────────────────────────────────────────────────────────
+target/
+*.class
+*.jar
+*.war
+
+# ─── Maven ────────────────────────────────────────────────────────────────────
+.mvn/repository
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
+
+# ─── IDE ──────────────────────────────────────────────────────────────────────
+.idea/
+*.iml
+.vscode/
+*.launch
+.classpath
+.project
+.settings/
+
+# ─── Sensitive Config (DB credentials, mail passwords, OAuth secrets) ─────────
+job-portal/src/main/resources/application.properties
+
+# ─── Uploads / User Files ─────────────────────────────────────────────────────
+job-portal/uploads/
+*.pdf
+*.docx
+
+# ─── JaCoCo Coverage Reports ──────────────────────────────────────────────────
+jacoco.exec
+*.exec
+
+# ─── OS Files ────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Logs ────────────────────────────────────────────────────────────────────
+*.log
+logs/
