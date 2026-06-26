@@ -21,7 +21,7 @@ release.properties
 .settings/
 
 # ─── Sensitive Config (DB credentials, mail passwords, OAuth secrets) ─────────
-job-portal/src/main/resources/application.properties
+# (application.properties is now safe because secrets are passed via environment variables)
 
 # ─── Uploads / User Files ─────────────────────────────────────────────────────
 job-portal/uploads/
