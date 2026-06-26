@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
+        .container { max-width: 600px; margin: 20px auto; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; }
+        .header { background-color: #607D8B; color: white; padding: 20px; text-align: center; }
+        .content { padding: 30px; }
+        .footer { background-color: #f9f9f9; padding: 20px; text-align: center; font-size: 12px; color: #777; border-top: 1px solid #e0e0e0; }
+        .job-details { background-color: #f5f5f5; padding: 15px; border-radius: 4px; margin: 15px 0; border-left: 4px solid #607D8B; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Application Update</h1>
+        </div>
+        <div class="content">
+            <p>Dear <strong th:text="${candidateName}">Candidate</strong>,</p>
+            <p>Thank you for giving us the opportunity to review your application for the following position:</p>
+            
+            <div class="job-details">
+                <p><strong>Job Title:</strong> <span th:text="${jobTitle}">Job Title</span></p>
+                <p><strong>Category:</strong> <span th:text="${category}">IT</span></p>
+                <p><strong>Location:</strong> <span th:text="${location}">Location</span></p>
+                <p><strong>Experience:</strong> <span th:text="${experience}">Experience</span></p>
+                <p><strong>Salary:</strong> <span th:text="${salary}">Salary</span></p>
+                <p><strong>Skills:</strong> <span th:text="${skills}">Skills</span></p>
+                <p><strong>Description:</strong></p>
+                <p style="white-space: pre-wrap;" th:text="${description}">Description</p>
+            </div>
+
+            <p>After careful consideration of your application and qualifications, we regret to inform you that we will not be moving forward with your candidacy at this time.</p>
+            
+            <p>The competition was very high, and we had many qualified candidates. This decision does not reflect your skills but rather our current specific needs.</p>
+            
+            <p>We will keep your resume in our database for future opportunities that may be a better match for your background.</p>
+
+            <p>We wish you the very best in your job search and future professional endeavors.</p>
+            
+            <p>Sincerely,<br>The Recruitment Team</p>
+        </div>
+        <div class="footer">
+            <p>&copy; 2026 <span th:text="${companyName}">AntiGravity</span>. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

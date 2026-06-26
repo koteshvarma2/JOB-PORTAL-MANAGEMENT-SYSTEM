@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Manage Users')}"></head>
+<body>
+    <nav th:replace="~{fragments/layout :: navbar}"></nav>
+    
+    <div class="container">
+        <h2 style="margin-bottom: 2rem;">Platform Users</h2>
+        <a th:href="@{/admin/dashboard}" class="btn" style="margin-bottom: 1rem;">&larr; Back to Dashboard</a>
+        
+        <div class="card">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="user : ${users}">
+                            <td th:text="${user.id}">1</td>
+                            <td th:text="${user.name}">Name</td>
+                            <td th:text="${user.username}">Username</td>
+                            <td th:text="${user.email}">Email</td>
+                            <td>
+                                <span class="badge" th:classappend="${user.role == 'ROLE_ADMIN'} ? 'badge-rejected' : (${user.role == 'ROLE_EMPLOYER'} ? 'badge-pending' : 'badge-shortlisted')"
+                                      th:text="${#strings.replace(user.role, 'ROLE_', '')}">ROLE</span>
+                            </td>
+                            <td>
+                                <form th:if="${user.role != 'ROLE_ADMIN'}" th:action="@{/admin/users/delete/{id}(id=${user.id})}" method="post" onsubmit="return confirm('Are you sure you want to delete this user account? This action cannot be undone.');" style="display:inline;">
+                                    <button type="submit" class="btn" style="background-color: #dc3545; color: white; padding: 0.25rem 0.5rem; font-size: 0.875rem; min-width: auto;">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

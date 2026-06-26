@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Error')}"></head>
+<body>
+    <nav th:replace="~{fragments/layout :: navbar}"></nav>
+
+    <div class="container" style="max-width: 600px; margin-top: 6rem; text-align: center;">
+        <div class="card" style="padding: 3rem;">
+            <div style="font-size: 5rem; margin-bottom: 1rem;">
+                <span th:if="${statusCode == 404}">🔍</span>
+                <span th:if="${statusCode == 403}">🚫</span>
+                <span th:if="${statusCode != 404 and statusCode != 403}">⚠️</span>
+            </div>
+            <h1 style="font-size: 4rem; color: var(--accent-color); margin-bottom: 0.5rem;" th:text="${statusCode}">500</h1>
+            <h2 style="margin-bottom: 1rem;" th:text="${errorTitle}">Something Went Wrong</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;" th:text="${errorMessage}">
+                An unexpected error occurred.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a th:href="@{/}" class="btn btn-primary">Go Home</a>
+                <a href="javascript:history.back()" class="btn">Go Back</a>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

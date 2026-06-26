@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('My Applications')}"></head>
+<body>
+    <nav th:replace="~{fragments/layout :: navbar}"></nav>
+    
+    <div class="container">
+        <h2 style="margin-bottom: 2rem;">My Applications</h2>
+        
+        <div th:if="${param.success}" class="alert alert-success">
+            Application submitted successfully!
+        </div>
+
+        <div class="card">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Job Title</th>
+                            <th>Company (Employer)</th>
+                            <th>Location</th>
+                            <th>Applied Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="app : ${applications}">
+                            <td th:text="${app.job.title}">Title</td>
+                            <td th:text="${app.job.postedBy.name}">Employer</td>
+                            <td th:text="${app.job.location}">Location</td>
+                            <td th:text="${app.applicationDate != null ? #temporals.format(app.applicationDate, 'dd-MM-yyyy') : 'N/A'}">Date</td>
+                            <td>
+                                <span th:class="'badge badge-' + ${#strings.toLowerCase(app.status)}" th:text="${app.status}">STATUS</span>
+                            </td>
+                        </tr>
+                        <tr th:if="${#lists.isEmpty(applications)}">
+                            <td colspan="5" style="text-align: center;">You haven't applied to any jobs yet.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

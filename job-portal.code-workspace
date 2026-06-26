@@ -1,0 +1,40 @@
+{
+    "folders": [
+        {
+            "name": "Job Portal",
+            "path": "job-portal"
+        }
+    ],
+    "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "java.compile.nullAnalysis.mode": "disabled",
+        "java.import.maven.enabled": true,
+        "java.autobuild.enabled": true,
+        "java.import.exclusions": [
+            "**/node_modules/**",
+            "**/.metadata/**",
+            "**/archetype-resources/**",
+            "**/META-INF/maven/**",
+            "**/target/**"
+        ],
+        "maven.executable.preferMavenWrapper": false,
+        "java.project.referencedLibraries": [],
+        "sqltools.connections": [
+            {
+                "mysqlOptions": {
+                    "authProtocol": "default",
+                    "enableSsl": "Disabled"
+                },
+                "ssh": "Disabled",
+                "previewLimit": 50,
+                "server": "localhost",
+                "port": 3306,
+                "driver": "MySQL",
+                "name": "mysqlconn",
+                "database": "job_portal_db",
+                "username": "root"
+            }
+        ],
+        "claudeCode.useTerminal": true
+    }
+}

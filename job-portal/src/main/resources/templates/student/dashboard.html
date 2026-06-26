@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Student Dashboard')}"></head>
+<body>
+    <nav th:replace="~{fragments/layout :: navbar}"></nav>
+    
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h2>Welcome, <span th:text="${student.name}" style="color: var(--accent-color);">Student</span>!</h2>
+            <div>
+                <a th:href="@{/student/profile}" class="btn">My Profile</a>
+                <a th:href="@{/student/applications}" class="btn btn-primary">My Applications</a>
+            </div>
+        </div>
+        
+        <div class="card" style="text-align: center; padding: 4rem 2rem;">
+            <h3>Ready to find your next opportunity?</h3>
+            <p style="color: var(--text-secondary); margin: 1rem 0 2rem 0;">Browse our latest job postings and apply to your dream job today.</p>
+            <a th:href="@{/jobs}" class="btn btn-primary" style="font-size: 1.1rem; padding: 0.75rem 1.5rem;">Browse Jobs</a>
+        </div>
+    </div>
+
+    <footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

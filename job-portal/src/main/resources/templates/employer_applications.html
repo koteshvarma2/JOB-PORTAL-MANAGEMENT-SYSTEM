@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Applications')}"></head>
+<body>
+    <nav th:replace="~{fragments/layout :: navbar}"></nav>
+    
+    <div class="container">
+        <h2 style="margin-bottom: 1rem;">Applications for: <span style="color: var(--accent-color);" th:text="${job.title}">Job Title</span></h2>
+        
+        <div th:if="${successMessage}" class="alert alert-success" th:text="${successMessage}" style="margin-bottom: 1rem;"></div>
+        <div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}" style="margin-bottom: 1rem;"></div>
+
+        <a th:href="@{/employer/dashboard}" class="btn" style="margin-bottom: 2rem;">&larr; Back to Dashboard</a>
+        
+        <div class="card">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Applicant</th>
+                            <th>Email</th>
+                            <th>Skills</th>
+                            <th>Applied Date</th>
+                            <th>Resume</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                            <th>Notifications</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="app : ${applications}">
+                            <td th:text="${app.applicant != null ? app.applicant.name : 'Unknown'}">Name</td>
+                            <td th:text="${app.applicant != null ? app.applicant.email : 'Unknown'}">Email</td>
+                            <td th:text="${app.applicant != null ? app.applicant.skills : 'N/A'}">Skills</td>
+                            <td th:text="${app.applicationDate != null ? #temporals.format(app.applicationDate, 'dd-MM-yyyy') : 'N/A'}">Date</td>
+                            <td>
+                                <a th:if="${app.applicant != null && app.applicant.resumeUrl != null}" th:href="@{'/uploads/' + ${app.applicant.id} + '/' + ${app.applicant.resumeUrl}}" target="_blank" class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">View Resume</a>
+                                <span th:if="${app.applicant == null || app.applicant.resumeUrl == null}">Not Uploaded</span>
+                            </td>
+                            <td>
+                                <span th:class="'badge badge-' + ${#strings.toLowerCase(app.status)}" th:text="${app.status}">STATUS</span>
+                            </td>
+                            <td>
+                                <a th:if="${app.status == 'PENDING'}" th:href="@{/employer/application/{id}/status(id=${app.id}, status='SHORTLISTED', jobId=${job.id})}" class="btn btn-success" style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">Shortlist</a>
+                                <a th:if="${app.status == 'PENDING'}" th:href="@{/employer/application/{id}/status(id=${app.id}, status='REJECTED', jobId=${job.id})}" class="btn btn-danger" style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">Reject</a>
+                                <span th:if="${app.status != 'PENDING'}">Processed</span>
+                            </td>
+                            <td>
+                                <a th:if="${app.status == 'SHORTLISTED' || app.status == 'REJECTED'}" 
+                                   th:href="@{/employer/applications/{id}/sendEmail(id=${app.id}, jobId=${job.id})}" 
+                                   class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">Send Email</a>
+                                <span th:if="${app.status == 'PENDING'}">N/A</span>
+                            </td>
+                        </tr>
+                        <tr th:if="${#lists.isEmpty(applications)}">
+                            <td colspan="8" style="text-align: center;">No applications received yet.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

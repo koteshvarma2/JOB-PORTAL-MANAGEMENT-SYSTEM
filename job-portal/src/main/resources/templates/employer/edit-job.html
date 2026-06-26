@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Edit Job')}"></head>
+<body>
+    <nav th:replace="~{fragments/layout :: navbar}"></nav>
+    
+    <div class="container" style="max-width: 800px;">
+        <div class="card">
+            <h2 style="margin-bottom: 1.5rem;">Edit Job</h2>
+            
+            <form th:action="@{/employer/job/update/{id}(id=${job.id})}" th:object="${job}" method="post">
+                <div class="form-group">
+                    <label>Job Title</label>
+                    <input type="text" th:field="*{title}" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <input type="text" th:field="*{category}" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" th:field="*{location}" class="form-control" required>
+                </div>
+                <div class="grid" style="gap: 1rem; margin-bottom: 0;">
+                    <div class="form-group">
+                        <label>Experience Needed</label>
+                        <input type="text" th:field="*{experience}" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Salary</label>
+                        <input type="text" th:field="*{salary}" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Skills Required</label>
+                    <input type="text" th:field="*{skills}" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Job Description</label>
+                    <textarea th:field="*{description}" class="form-control" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Update Job</button>
+                <a th:href="@{/employer/dashboard}" class="btn" style="margin-left: 1rem;">Cancel</a>
+            </form>
+        </div>
+    </div>
+
+    <footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

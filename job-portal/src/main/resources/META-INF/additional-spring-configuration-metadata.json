@@ -1,0 +1,10 @@
+{
+  "properties": [
+    {
+      "name": "upload.dir",
+      "type": "java.lang.String",
+      "description": "Directory where uploaded resume files are stored. Used by StudentController to persist resume files on disk.",
+      "defaultValue": "uploads"
+    }
+  ]
+}

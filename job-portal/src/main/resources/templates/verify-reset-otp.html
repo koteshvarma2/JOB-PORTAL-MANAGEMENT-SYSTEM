@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Verify OTP - Job Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2196F3;
+            --primary-hover: #1976D2;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 { margin-bottom: 1rem; font-weight: 700; }
+        p { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.9rem; }
+        .form-group { margin-bottom: 1.5rem; text-align: left; }
+        label { display: block; margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500; }
+        input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: #334155;
+            border: 1px solid #475569;
+            border-radius: 0.5rem;
+            color: white;
+            font-size: 1rem;
+            box-sizing: border-box;
+            text-align: center;
+            letter-spacing: 0.5rem;
+            font-weight: bold;
+        }
+        input:focus { outline: none; border-color: var(--primary); }
+        .btn {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn:hover { background-color: var(--primary-hover); }
+        .alert {
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+        }
+        .alert-danger { background-color: #7f1d1d; color: #fecaca; }
+        .alert-success { background-color: #064e3b; color: #d1fae5; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Verify OTP</h2>
+        <p>Please enter the 6-digit code sent to <br><strong th:text="${email}">email@example.com</strong></p>
+        
+        <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+        <div th:if="${param.error}" class="alert alert-danger" th:text="${param.error}"></div>
+        <div th:if="${param.success}" class="alert alert-success" th:text="${param.success}"></div>
+        
+        <form th:action="@{/verify-reset-otp}" method="post">
+            <input type="hidden" name="email" th:value="${email}">
+            <div class="form-group">
+                <label for="otp">OTP Code</label>
+                <input type="text" id="otp" name="otp" maxlength="6" placeholder="000000" required autofocus>
+            </div>
+            <button type="submit" class="btn">Verify & Continue</button>
+        </form>
+
+        <div style="margin-top: 1.5rem; font-size: 0.875rem;">
+            <span>Didn't receive the code?</span>
+            <a th:href="@{/resend-reset-otp(email=${email})}" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-left: 0.5rem;">Resend OTP</a>
+        </div>
+    </div>
+</body>
+</html>

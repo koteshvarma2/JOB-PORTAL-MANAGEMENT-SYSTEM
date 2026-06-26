@@ -1,0 +1,113 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.example:job-portal >-----------------------
+[INFO] Building job-portal 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.14:run (default-cli) > test-compile @ job-portal >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ job-portal ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 20 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ job-portal ---
+[INFO] Recompiling the module because of added or removed source files.
+[INFO] Compiling 25 source files with javac [debug parameters release 21] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ job-portal ---
+[INFO] skip non existing resourceDirectory C:\Users\konakanchi kotesh\OneDrive\Desktop\FullStack\JOB PORTAL MANAGEMENT SYSTEM\job-portal\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ job-portal ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] <<< spring-boot:3.5.14:run (default-cli) < test-compile @ job-portal <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.5.14:run (default-cli) @ job-portal ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.14)
+
+2026-05-02T08:19:09.917+05:30  INFO 19120 --- [job-portal] [           main] c.e.jobportal.JobPortalApplication       : Starting JobPortalApplication using Java 21 with PID 19120 (C:\Users\konakanchi kotesh\OneDrive\Desktop\FullStack\JOB PORTAL MANAGEMENT SYSTEM\job-portal\target\classes started by konakanchi kotesh in C:\Users\konakanchi kotesh\OneDrive\Desktop\FullStack\JOB PORTAL MANAGEMENT SYSTEM\job-portal)
+2026-05-02T08:19:09.921+05:30  INFO 19120 --- [job-portal] [           main] c.e.jobportal.JobPortalApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-05-02T08:19:11.376+05:30  INFO 19120 --- [job-portal] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-02T08:19:11.484+05:30  INFO 19120 --- [job-portal] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 95 ms. Found 3 JPA repository interfaces.
+2026-05-02T08:19:12.254+05:30  INFO 19120 --- [job-portal] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-05-02T08:19:12.274+05:30  INFO 19120 --- [job-portal] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-02T08:19:12.274+05:30  INFO 19120 --- [job-portal] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.54]
+2026-05-02T08:19:12.388+05:30  INFO 19120 --- [job-portal] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-05-02T08:19:12.389+05:30  INFO 19120 --- [job-portal] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2400 ms
+2026-05-02T08:19:12.720+05:30  INFO 19120 --- [job-portal] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-02T08:19:12.829+05:30  INFO 19120 --- [job-portal] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.49.Final
+2026-05-02T08:19:12.882+05:30  INFO 19120 --- [job-portal] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-05-02T08:19:13.426+05:30  INFO 19120 --- [job-portal] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-02T08:19:13.501+05:30  INFO 19120 --- [job-portal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-02T08:19:14.625+05:30  INFO 19120 --- [job-portal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@48aa0813
+2026-05-02T08:19:14.631+05:30  INFO 19120 --- [job-portal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-02T08:19:14.779+05:30  INFO 19120 --- [job-portal] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.45
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-02T08:19:16.290+05:30  INFO 19120 --- [job-portal] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table applications (id bigint not null auto_increment, application_date datetime(6), status varchar(255) not null, applicant_id bigint not null, job_id bigint not null, primary key (id)) engine=InnoDB
+Hibernate: create table jobs (id bigint not null auto_increment, category varchar(255) not null, description varchar(1000) not null, experience varchar(255) not null, location varchar(255) not null, posted_date datetime(6), salary varchar(255) not null, skills varchar(255) not null, title varchar(255) not null, user_id bigint not null, primary key (id)) engine=InnoDB
+Hibernate: create table users (id bigint not null auto_increment, education varchar(255), email varchar(255) not null, enabled bit not null, name varchar(255) not null, otp varchar(255), otp_expiry_time datetime(6), password varchar(255) not null, reset_token varchar(255), resume_url varchar(255), role varchar(255) not null, skills varchar(255), username varchar(255) not null, primary key (id)) engine=InnoDB
+Hibernate: alter table users drop index UK6dotkott2kjsp8vw4d0m25fb7
+Hibernate: alter table users add constraint UK6dotkott2kjsp8vw4d0m25fb7 unique (email)
+Hibernate: alter table users drop index UKr43af9ap4edm43mmtq01oddj6
+Hibernate: alter table users add constraint UKr43af9ap4edm43mmtq01oddj6 unique (username)
+Hibernate: alter table applications add constraint FKgi56fay19nbaiamp5xyhd7ptc foreign key (applicant_id) references users (id)
+Hibernate: alter table applications add constraint FK65weib1lru9dkrbto5pv389vi foreign key (job_id) references jobs (id)
+Hibernate: alter table jobs add constraint FKra3g6pshf0p0hv5aisuh3weg8 foreign key (user_id) references users (id)
+2026-05-02T08:19:18.419+05:30  INFO 19120 --- [job-portal] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-02T08:19:18.898+05:30  INFO 19120 --- [job-portal] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-02T08:19:20.064+05:30  INFO 19120 --- [job-portal] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2026-05-02T08:19:20.416+05:30  INFO 19120 --- [job-portal] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-05-02T08:19:20.465+05:30  INFO 19120 --- [job-portal] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-05-02T08:19:21.131+05:30  WARN 19120 --- [job-portal] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-05-02T08:19:21.136+05:30  INFO 19120 --- [job-portal] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-02T08:19:21.138+05:30  INFO 19120 --- [job-portal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-02T08:19:21.147+05:30  INFO 19120 --- [job-portal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-05-02T08:19:21.171+05:30  INFO 19120 --- [job-portal] [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-05-02T08:19:21.200+05:30 ERROR 19120 --- [job-portal] [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.546 s
+[INFO] Finished at: 2026-05-02T08:19:21+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.5.14:run (default-cli) on project job-portal: Process terminated with exit code: 1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

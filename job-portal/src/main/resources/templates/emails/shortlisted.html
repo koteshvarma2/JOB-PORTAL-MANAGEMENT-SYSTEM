@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
+        .container { max-width: 600px; margin: 20px auto; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; }
+        .header { background-color: #4CAF50; color: white; padding: 20px; text-align: center; }
+        .content { padding: 30px; }
+        .footer { background-color: #f9f9f9; padding: 20px; text-align: center; font-size: 12px; color: #777; border-top: 1px solid #e0e0e0; }
+        .button { display: inline-block; padding: 12px 24px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 20px; }
+        .job-details { background-color: #f0f8f0; padding: 15px; border-radius: 4px; margin: 15px 0; border-left: 4px solid #4CAF50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Congratulations!</h1>
+        </div>
+        <div class="content">
+            <p>Dear <strong th:text="${candidateName}">Candidate</strong>,</p>
+            <p>We are thrilled to inform you that you have been <strong>Shortlisted</strong> for the next round of interviews!</p>
+            
+            <div class="job-details">
+                <p><strong>Job Title:</strong> <span th:text="${jobTitle}">Job Title</span></p>
+                <p><strong>Category:</strong> <span th:text="${category}">IT</span></p>
+                <p><strong>Location:</strong> <span th:text="${location}">Location</span></p>
+                <p><strong>Experience:</strong> <span th:text="${experience}">Experience</span></p>
+                <p><strong>Salary:</strong> <span th:text="${salary}">Salary</span></p>
+                <p><strong>Skills:</strong> <span th:text="${skills}">Skills</span></p>
+                <p><strong>Description:</strong></p>
+                <p style="white-space: pre-wrap;" th:text="${description}">Description</p>
+            </div>
+
+            <p>Your profile stood out to us, and we are excited to learn more about your skills and experiences.</p>
+            
+            <p><strong>Next Steps:</strong></p>
+            <ul>
+                <li>Our recruitment team will contact you shortly to schedule a technical interview.</li>
+                <li>Please keep your resume and portfolio updated.</li>
+                <li>Log in to your dashboard to view more details.</li>
+            </ul>
+
+            <a href="#" class="button">Visit Dashboard</a>
+        </div>
+        <div class="footer">
+            <p>&copy; 2026 <span th:text="${companyName}">AntiGravity</span>. All rights reserved.</p>
+            <p>You received this email because you applied for a job on our portal.</p>
+        </div>
+    </div>
+</body>
+</html>

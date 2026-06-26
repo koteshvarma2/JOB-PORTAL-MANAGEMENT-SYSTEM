@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Home')}"></head>
+<body>
+    <nav th:replace="~{fragments/layout :: navbar}"></nav>
+    
+    <div class="container hero">
+        <h1>Find Your Dream Job Today</h1>
+        <p>Connect with top employers and discover opportunities that match your skills.</p>
+        <a th:href="@{/jobs}" class="btn btn-primary" style="font-size: 1.2rem; padding: 1rem 2rem;">Explore Jobs Now</a>
+    </div>
+
+    <footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>
