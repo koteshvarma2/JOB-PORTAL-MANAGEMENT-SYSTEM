@@ -31,8 +31,8 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             user = new User();
             user.setEmail(email);
             user.setName(name);
-            user.setUsername(email); // Use email as username
-            user.setPassword(""); // No password for OAuth2
+            user.setUsername(email != null ? email : java.util.UUID.randomUUID().toString()); 
+            user.setPassword(java.util.UUID.randomUUID().toString()); // Generate a random password for OAuth2 users
             user.setRole("ROLE_STUDENT"); // Default role
             user.setEnabled(true);
             userRepository.save(user);

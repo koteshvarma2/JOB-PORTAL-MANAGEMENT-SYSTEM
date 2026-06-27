@@ -35,7 +35,7 @@ public class DataInitializer implements CommandLineRunner {
 
         // Get all users and check their passwords
         userService.findAllUsers().forEach(user -> {
-            if (!user.getPassword().startsWith("$2a$")) {
+            if (user.getPassword() != null && !user.getPassword().startsWith("$2a$")) {
                 System.out.println("Fixing password for user: " + user.getUsername());
                 user.setPassword(passwordEncoder.encode(user.getPassword()));
                 userService.updateUser(user);
