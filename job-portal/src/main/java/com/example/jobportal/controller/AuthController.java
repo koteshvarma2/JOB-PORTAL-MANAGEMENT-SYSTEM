@@ -197,7 +197,7 @@ public class AuthController {
                                        @RequestParam("otp") String otp, 
                                        Model model) {
         User user = userService.findByEmail(email);
-        if (user == null || user.getOtp() == null || !user.getOtp().equals(otp)) {
+        if (user == null || user.getOtp() == null || !user.getOtp().equals(otp.trim())) {
             model.addAttribute("error", "Invalid OTP.");
             model.addAttribute("email", email);
             return "verify-reset-otp";
@@ -277,18 +277,8 @@ public class AuthController {
         user.setOtpExpiryTime(null);
         userService.updateUser(user);
 
-        // Auto-login after reset
-        try {
-            org.springframework.security.authentication.UsernamePasswordAuthenticationToken authToken = 
-                new org.springframework.security.authentication.UsernamePasswordAuthenticationToken(
-                    user.getUsername(), null, 
-                    org.springframework.security.core.authority.AuthorityUtils.createAuthorityList(user.getRole())
-                );
-            org.springframework.security.core.context.SecurityContextHolder.getContext().setAuthentication(authToken);
-            return "redirect:/dashboard";
-        } catch (Exception e) {
-            return "redirect:/login?resetSuccess";
-        }
+        // Redirect to login page with success message
+        return "redirect:/login?resetSuccess";
     }
 
 }
